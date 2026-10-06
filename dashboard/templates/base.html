@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}SERA MOBILE.TECHNOLOGY{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/site.css' %}">
+  <link rel="stylesheet" href="{% static 'css/sera.css' %}">
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+  {% include "partials/header.html" %}
+  <main class="wrap">
+    {% block content %}{% endblock %}
+  </main>
+  {% include "partials/footer.html" %}
+  {% include "partials/floating_buttons.html" %}
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

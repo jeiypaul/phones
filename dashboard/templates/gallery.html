@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}Gallery | Your Phone Shop{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+  <h1>Gallery</h1>
+  <p>A look at our shop, our phones and our work.</p>
+</section>
+
+<nav class="jump" aria-label="Gallery categories">
+  <a href="{% url 'gallery' %}"{% if not active %} class="on"{% endif %}>All</a>
+  {% for value, label in categories %}
+    <a href="?category={{ value }}"{% if active == value %} class="on"{% endif %}>{{ label }}</a>
+  {% endfor %}
+</nav>
+
+<section class="block">
+  {% if images %}
+    <div class="gallery-grid">
+      {% for img in images %}
+        <figure class="g-item">
+          <a href="{{ img.image.url }}" class="g-link" data-caption="{{ img.title }}">
+            <img src="{{ img.image.url }}" alt="{{ img.title|default:'Gallery photo' }}" loading="lazy">
+          </a>
+          {% if img.title %}<figcaption>{{ img.title }}</figcaption>{% endif %}
+        </figure>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="lead">No photos here yet. Please check back soon.</p>
+  {% endif %}
+</section>
+
+<!-- Simple lightbox -->
+<div class="lightbox" id="lightbox" hidden>
+  <button type="button" class="lb-close" aria-label="Close">&times;</button>
+  <img src="" alt="" id="lbImg">
+  <p id="lbCap"></p>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function () {
+  var box = document.getElementById("lightbox");
+  var img = document.getElementById("lbImg");
+  var cap = document.getElementById("lbCap");
+  document.querySelectorAll(".g-link").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      img.src = a.href;
+      cap.textContent = a.dataset.caption || "";
+      box.hidden = false;
+    });
+  });
+  function close() { box.hidden = true; img.src = ""; }
+  box.addEventListener("click", function (e) { if (e.target !== img) close(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+})();
+</script>
+{% endblock %}

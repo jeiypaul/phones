@@ -1,0 +1,192 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Services | Your Phone Shop{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+  <h1>Sera Mobile.Technology services</h1>
+  <p>Buy a phone, fix it, protect it or unlock it. Everything in one shop, with honest prices and a warranty.</p>
+</section>
+
+<!-- Quick links -->
+<nav class="jump" aria-label="Services">
+  <a href="#sales">Phone sales</a>
+  <a href="#calculator">Lipa Pole Pole</a>
+  <a href="#repairs">Screen &amp; battery</a>
+  <a href="#accessories">Accessories</a>
+  <a href="#unlock">Unlock &amp; flashing</a>
+</nav>
+
+<!-- Phone sales -->
+<section class="block" id="sales">
+  <h2>Phone sales</h2>
+  <p class="lead">New, used and refurbished phones from the brands people trust. Every phone is original and tested.</p>
+  <div class="cards">
+    <div class="card"><h3>New phones</h3><p>Sealed, with manufacturer warranty. Samsung, Tecno, Infinix, iPhone and more.</p></div>
+    <div class="card"><h3>Used phones</h3><p>Tested pre-owned phones at lower prices, with a shop warranty.</p></div>
+    <div class="card"><h3>Trade-in</h3><p>Bring your old phone and use its value to pay for your next one.</p></div>
+    <div class="card"><h3>Lipa Pole Pole</h3><p>Pay a deposit, take the phone and clear the balance in installments.</p></div>
+  </div>
+  <p class="center"><a class="btn btn-dark" href="https://wa.me/254743989921?text=I%20want%20to%20ask%20about%20phones" target="_blank" rel="noopener">Ask what's in stock</a></p>
+</section>
+
+<!-- Lipa Pole Pole calculator -->
+<section class="block alt" id="calculator">
+  <h2>Lipa Pole Pole calculator</h2>
+  <p class="lead">Enter the phone price and see what you would pay each week or month. This is an estimate, and we confirm the final figures in the shop.</p>
+
+  <div class="calc">
+    <div class="calc-inputs">
+      <label>Phone price (KES)
+        <input type="number" id="calcPrice" min="0" step="100" placeholder="e.g. 25000">
+      </label>
+      <label>Trade-in value (KES, optional)
+        <input type="number" id="calcTrade" min="0" step="100" placeholder="0">
+      </label>
+      <label>Deposit (KES)
+        <input type="number" id="calcDeposit" min="0" step="100" placeholder="e.g. 5000">
+      </label>
+      <label>Pay every
+        <select id="calcUnit">
+          <option value="week">Week</option>
+          <option value="month" selected>Month</option>
+        </select>
+      </label>
+      <label>Number of payments
+        <input type="number" id="calcCount" min="1" max="52" value="4">
+      </label>
+    </div>
+
+    <div class="calc-result" aria-live="polite">
+      <p class="calc-label">You pay each <span id="outUnit">month</span></p>
+      <p class="calc-big" id="outInstall">KES 0</p>
+      <dl>
+        <div><dt>Phone price after trade-in</dt><dd id="outAfterTrade">KES 0</dd></div>
+        <div><dt>Deposit today</dt><dd id="outDeposit">KES 0</dd></div>
+        <div><dt>Balance to pay in installments</dt><dd id="outBalance">KES 0</dd></div>
+        <div><dt>Total you pay</dt><dd id="outTotal">KES 0</dd></div>
+      </dl>
+      <p class="calc-msg" id="calcMsg"></p>
+      <a class="btn btn-dark" id="calcWa" href="https://wa.me/254743989921" target="_blank" rel="noopener">Send this to us on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- Screen and battery -->
+<section class="block" id="repairs">
+  <h2>Screen and battery replacement</h2>
+  <p class="lead">We use quality parts and tell you the price before we start. Most repairs are done the same day.</p>
+  <div class="split">
+    <div>
+      <h3>Screen replacement</h3>
+      <ul class="ticks">
+        <li>Cracked glass, dead touch, lines or black screens.</li>
+        <li>Original and high-quality replacement screens.</li>
+        <li>Phone tested fully before you take it back.</li>
+      </ul>
+      <h3 style="margin-top:24px">Battery replacement</h3>
+      <ul class="ticks">
+        <li>Phone dying fast, shutting off or swollen battery.</li>
+        <li>New battery fitted and charging tested.</li>
+        <li>Warranty on the battery and the work.</li>
+      </ul>
+    </div>
+    <img src="{% static 'images/service-repair.jpg' %}" alt="Technician repairing a phone">
+  </div>
+  <p class="note">Not sure what's wrong? Bring the phone in or send a photo on WhatsApp and we will tell you the cause and the cost.</p>
+</section>
+
+<!-- Accessories -->
+<section class="block alt" id="accessories">
+  <h2>Phone accessories</h2>
+  <p class="lead">Protect your phone and keep it charged.</p>
+  <div class="cards">
+    <div class="card"><h3>Phone cases</h3><p>Covers for most models, from slim to heavy-duty.</p></div>
+    <div class="card"><h3>Screen protectors</h3><p>Tempered glass fitted for you in the shop.</p></div>
+    <div class="card"><h3>Chargers &amp; cables</h3><p>Fast chargers, USB-C, Lightning and micro-USB cables.</p></div>
+    <div class="card"><h3>Earphones &amp; earbuds</h3><p>Wired and wireless, for calls and music.</p></div>
+    <div class="card"><h3>Power banks</h3><p>Stay charged when you are out all day.</p></div>
+    <div class="card"><h3>Memory cards &amp; more</h3><p>Memory cards, phone holders and other add-ons.</p></div>
+  </div>
+</section>
+
+<!-- Unlock and flashing -->
+<section class="block" id="unlock">
+  <h2>Unlocking and flashing</h2>
+  <p class="lead">Software problems fixed by a technician who knows what he is doing.</p>
+  <div class="cards">
+    <div class="card"><h3>Pattern, PIN &amp; password unlock</h3><p>Locked out of your own phone? We help you get back in.</p></div>
+    <div class="card"><h3>Flashing &amp; software repair</h3><p>Phone stuck on the logo, hanging, restarting or running slowly.</p></div>
+    <div class="card"><h3>Software updates</h3><p>Updating or reinstalling the operating system safely.</p></div>
+    <div class="card"><h3>Network unlock</h3><p>Use your phone with any network where it is possible.</p></div>
+  </div>
+  <p class="note"><b>Please note:</b> we only unlock phones that belong to you. Bring your ID and proof of ownership such as a receipt or the box. Flashing can erase data, so we will tell you first and recommend a backup if one is possible.</p>
+</section>
+
+<section class="cta">
+  <h2>Not sure which service you need?</h2>
+  <p>Tell us what is wrong or what you are looking for and we will point you the right way.</p>
+  <div class="hero-btns" style="justify-content:center">
+    <a class="btn btn-light" href="{% url 'contact' %}">Contact us</a>
+    <a class="btn btn-line-light" href="https://wa.me/254743989921" target="_blank" rel="noopener">WhatsApp us</a>
+  </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function () {
+  // ---- Settings you can change ----
+  var EXTRA_CHARGE_PERCENT = 0;      // extra charge on the balance, 0 = none
+  var MIN_DEPOSIT_PERCENT  = 20;     // minimum deposit as % of price after trade-in
+  var WHATSAPP_NUMBER      = "254743989921";
+  // ---------------------------------
+
+  var $ = function (id) { return document.getElementById(id); };
+  var fmt = function (n) { return "KES " + Math.round(n).toLocaleString("en-KE"); };
+
+  function calc() {
+    var price   = parseFloat($("calcPrice").value)   || 0;
+    var trade   = parseFloat($("calcTrade").value)   || 0;
+    var deposit = parseFloat($("calcDeposit").value) || 0;
+    var count   = parseInt($("calcCount").value, 10) || 1;
+    var unit    = $("calcUnit").value;
+    var msg     = $("calcMsg");
+
+    var afterTrade = Math.max(price - trade, 0);
+    var minDep     = afterTrade * MIN_DEPOSIT_PERCENT / 100;
+    var balance    = Math.max(afterTrade - deposit, 0);
+    var withCharge = balance * (1 + EXTRA_CHARGE_PERCENT / 100);
+    var install    = withCharge / count;
+    var total      = deposit + withCharge;
+
+    $("outUnit").textContent       = unit;
+    $("outInstall").textContent    = fmt(install);
+    $("outAfterTrade").textContent = fmt(afterTrade);
+    $("outDeposit").textContent    = fmt(deposit);
+    $("outBalance").textContent    = fmt(withCharge);
+    $("outTotal").textContent      = fmt(total);
+
+    msg.textContent = "";
+    if (price > 0 && deposit < minDep) {
+      msg.textContent = "Minimum deposit is usually " + fmt(minDep) + " (" + MIN_DEPOSIT_PERCENT + "%).";
+    } else if (deposit > afterTrade && afterTrade > 0) {
+      msg.textContent = "Your deposit is higher than the price, so no installments are needed.";
+    }
+
+    var text = "Hello, I'd like Lipa Pole Pole. Phone price: " + fmt(price) +
+      (trade ? ", trade-in: " + fmt(trade) : "") +
+      ", deposit: " + fmt(deposit) +
+      ", " + count + " " + unit + "ly payments of about " + fmt(install) + ".";
+    $("calcWa").href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text);
+  }
+
+  ["calcPrice", "calcTrade", "calcDeposit", "calcUnit", "calcCount"].forEach(function (id) {
+    $(id).addEventListener("input", calc);
+  });
+  calc();
+})();
+</script>
+{% endblock %}

@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}About Us | Your Phone Shop{% endblock %}
+
+{% block content %}
+
+<!-- Intro -->
+<section class="page-hero">
+  <h1>About Sera Mobile.Technology</h1>
+  <p>We sell genuine phones, fix them properly, and make them affordable. Every customer is treated the way we would want to be treated.</p>
+</section>
+
+<!-- 1. Original phones -->
+<section class="block">
+  <div class="split">
+    <div>
+      <h2>100% original phones</h2>
+      <p>Every phone we sell is genuine. No fakes, no copies, no "refurbished" phones sold as new.</p>
+      <ul class="ticks">
+        <li>New phones come sealed, with the manufacturer's warranty.</li>
+        <li>Used phones are tested on battery, screen, camera, speakers and network before they reach the shelf.</li>
+        <li>We tell you honestly if a phone is new, used or refurbished.</li>
+        <li>You can check the IMEI and test the phone in the shop before you pay.</li>
+      </ul>
+    </div>
+    <img src="{% static 'images/about-original.jpg' %}" alt="Genuine phones on display">
+  </div>
+</section>
+
+<!-- 2. Lipa Pole Pole -->
+<section class="block alt">
+  <h2>Lipa Pole Pole</h2>
+  <p class="lead">Get the phone you need today and pay in small, flexible amounts.</p>
+  <div class="steps">
+    <div class="step"><span>1</span><h3>Choose your phone</h3><p>Pick any phone in the shop that is available on Lipa Pole Pole.</p></div>
+    <div class="step"><span>2</span><h3>Pay a deposit</h3><p>Pay an agreed starting amount by M-Pesa or cash and take the phone home.</p></div>
+    <div class="step"><span>3</span><h3>Pay the balance gradually</h3><p>Clear the rest in installments over the period we agree, for example weekly or monthly.</p></div>
+  </div>
+  <p class="note">You see the full price and every payment date before you agree, so there are no hidden charges. Ask us about the current deposit and payment period.</p>
+</section>
+
+<!-- 3. Trade-in -->
+<section class="block">
+  <div class="split reverse">
+    <div>
+      <h2>Trade in your old phone</h2>
+      <p>Your old phone still has value. Bring it in and use it to pay for your next one.</p>
+      <ul class="ticks">
+        <li>We check your phone and give you a fair price on the spot.</li>
+        <li>The value is taken off the price of your new phone.</li>
+        <li>You can combine a trade-in with Lipa Pole Pole to lower your installments.</li>
+        <li>Please bring your ID and make sure the phone is unlocked and reset.</li>
+      </ul>
+    </div>
+    <img src="{% static 'images/about-tradein.jpg' %}" alt="Trading in an old phone">
+  </div>
+</section>
+
+<!-- 4. Expert repair -->
+<section class="block alt">
+  <h2>Expert repair</h2>
+  <p class="lead">Our technicians fix your phone with quality parts, and we explain the problem and the price before we start.</p>
+  <div class="cards">
+    <div class="card"><h3>Screen replacement</h3><p>Cracked or unresponsive screens, repaired fast.</p></div>
+    <div class="card"><h3>Battery replacement</h3><p>Phone dying early or swelling? We fit a new battery.</p></div>
+    <div class="card"><h3>Charging port</h3><p>Loose or not charging? We clean or replace the port.</p></div>
+    <div class="card"><h3>Software &amp; water damage</h3><p>Updates, unlocking, data recovery and water damage checks.</p></div>
+  </div>
+  <p class="note">Most common repairs are done the same day. Repairs come with a warranty on the work.</p>
+</section>
+
+<!-- 5. Trust and assurance -->
+<section class="block">
+  <h2>Our promise to you</h2>
+  <div class="assure">
+    <div class="card"><h3>Genuine or your money back</h3><p>If a phone turns out not to be original, we refund you.</p></div>
+    <div class="card"><h3>Warranty you can use</h3><p>If something goes wrong in the warranty period, bring it back and we will sort it out.</p></div>
+    <div class="card"><h3>Honest prices</h3><p>The price you are told is the price you pay. No surprises at the counter.</p></div>
+    <div class="card"><h3>Safe payment</h3><p>Pay by M-Pesa or cash and always get a receipt.</p></div>
+    <div class="card"><h3>We are easy to find</h3><p>We have a real shop and a real phone number. Visit us or call any time.</p></div>
+    <div class="card"><h3>Your data is private</h3><p>We do not look through your phone or keep your personal information.</p></div>
+  </div>
+</section>
+
+<!-- Call to action -->
+<section class="cta">
+  <h2>Come and see for yourself</h2>
+  <p>Visit the shop, or send us a message and we will answer quickly.</p>
+  <div class="hero-btns" style="justify-content:center">
+    <a class="btn btn-light" href="{% url 'contact' %}">Contact us</a>
+    <a class="btn btn-line-light" href="https://wa.me/254743989921" target="_blank" rel="noopener">WhatsApp us</a>
+  </div>
+</section>
+
+{% endblock %}

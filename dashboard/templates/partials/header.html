@@ -1,0 +1,25 @@
+{% load static %}
+<header class="site-header">
+  <div class="site-topbar">
+    <div class="wrap">
+      <span class="site-hours">Open Mon–Sat, 8:00am – 7:00pm</span>
+      <span>Call or WhatsApp: <a href="tel:+254743989921">+254 743989921</a></span>
+    </div>
+  </div>
+  {% load static %}
+<header class="site-header">
+  <div class="wrap site-main-row">
+    <a class="site-logo" href="{% url 'home' %}">
+      <img src="{% static 'images/logo.png' %}" alt="Sera Mobile.Technology" class="site-logo-img">
+    </a>
+    {% with current=request.resolver_match.url_name %}
+    <nav class="site-nav" aria-label="Main">
+      <a href="{% url 'home' %}"{% if current == 'home' %} aria-current="page"{% endif %}>Home</a>
+      <a href="{% url 'about' %}"{% if current == 'about' %} aria-current="page"{% endif %}>About</a>
+      <a href="{% url 'services' %}"{% if current == 'services' %} aria-current="page"{% endif %}>Services</a>
+      <a href="{% url 'gallery' %}"{% if current == 'gallery' %} aria-current="page"{% endif %}>Gallery</a>
+      <a class="site-cta" href="{% url 'contact' %}"{% if current == 'contact' %} aria-current="page"{% endif %}>Contact us</a>
+    </nav>
+    {% endwith %}
+  </div>
+</header>

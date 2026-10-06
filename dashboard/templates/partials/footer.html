@@ -1,0 +1,41 @@
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer-grid">
+      <div>
+        <h3>SERA MOBILE.TECHNOLOGY</h3>
+        <p>Your trusted mobile phone shop in kenya.
+            Genuine devices, Official warranty, fast delivery.
+            New and refurbished phones, accessories and same-day repairs.</p>
+      </div>
+      <div>
+        <h3>Pages</h3>
+        <ul>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'services' %}">Services</a></li>
+          <li><a href="{% url 'gallery' %}">Gallery</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Get in touch</h3>
+        <ul>
+          <li><a href="{% url 'contact' %}">Contact Us</a></li>
+          <li><a href="tel:+254743989921">+254 743989921</a></li>
+          <li><a href="mailto:hello@seramobiletechnology@gmail.com">hello@seramobiletechnology@gmail.com</a></li>
+          <li>warranty and Returns</li>
+          <li>Help Center</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Visit us</h3>
+        <ul>
+          <li>Shop address, Town</li>
+          <li>Mon–Sat, 8:00am – 7:00pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer-base">
+      <span>&copy; {% now "Y" %} Sera Mobile.Technology. All rights reserved. Licensed Retailer. Secure Payments</span>
+    </div>
+  </div>
+</footer>

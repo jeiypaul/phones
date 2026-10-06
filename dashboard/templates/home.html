@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Your Phone Shop | Phones, Repairs & Accessories{% endblock %}
+
+{% block content %}
+
+<!-- 1. Hero -->
+<section class="hero">
+  <h1>Genuine phones. Fair prices.<br>Same-day repairs.</h1>
+  <p>New and used phones, accessories and expert repairs, all backed by warranty. Pay with M-Pesa.</p>
+  <div class="hero-btns">
+    <a class="btn btn-dark" href="{% url 'services' %}">View services</a>
+    <a class="btn btn-line" href="https://wa.me/254743989921" target="_blank" rel="noopener">WhatsApp us</a>
+  </div>
+</section>
+
+<!-- 2. Trust strip -->
+<section class="trust-strip">
+  <div><b>100% Original</b><span>Warranty on every phone</span></div>
+  <div><b>M-Pesa</b><span>Easy, secure payment</span></div>
+  <div><b>Fast repairs</b><span>Most fixed the same day</span></div>
+  <div><b>Delivery</b><span>Available on request</span></div>
+</section>
+
+<!-- 3. Services -->
+<section class="block">
+  <h2>What we offer</h2>
+  <div class="cards">
+    <a class="card" href="{% url 'services' %}"><h3>New phones</h3><p>Latest models from top brands, sealed and under warranty.</p></a>
+    <a class="card" href="{% url 'services' %}"><h3>Used phones</h3><p>Tested, certified pre-owned phones at lower prices.</p></a>
+    <a class="card" href="{% url 'services' %}"><h3>Repairs</h3><p>Screens, batteries, charging ports and software fixes.</p></a>
+    <a class="card" href="{% url 'services' %}"><h3>Accessories</h3><p>Cases, chargers, earphones and screen protectors.</p></a>
+  </div>
+</section>
+
+<!-- 4. Featured phones -->
+<section class="block">
+  <h2>Featured phones</h2>
+  <div class="cards">
+    <article class="card product">
+      <img src="{% static 'images/phone1.jpg' %}" alt="iPhone16 pro max">
+      <h3>Phone name 128GB</h3>
+      <p class="price">KES 100,000</p>
+      <a class="btn btn-dark" href="https://wa.me/254743989921?text=I%20am%20interested%20in%20Phone%20name" target="_blank" rel="noopener">Ask on WhatsApp</a>
+    </article>
+    <!-- repeat the article for each phone -->
+  </div>
+</section>
+
+<!-- 5. Why choose us -->
+<section class="block alt">
+  <h2>Why choose us</h2>
+  <div class="cards">
+    <div class="card"><h3>Warranty you can trust</h3><p>Every phone is tested and covered.</p></div>
+    <div class="card"><h3>Honest advice</h3><p>We help you pick the right phone for your budget.</p></div>
+    <div class="card"><h3>Trade-ins welcome</h3><p>Bring your old phone and pay less for a new one.</p></div>
+  </div>
+</section>
+
+<!-- 6. Gallery preview -->
+<section class="block">
+  <h2>From our shop</h2>
+  <div class="thumbs">
+    <img src="{% static 'images/g1.jpg' %}" alt="">
+    <img src="{% static 'images/g2.jpg' %}" alt="">
+    <img src="{% static 'images/g3.jpg' %}" alt="">
+    <img src="{% static 'images/g4.jpg' %}" alt="">
+  </div>
+  <p class="center"><a class="btn btn-dark" href="{% url 'gallery' %}">See full gallery</a></p>
+</section>
+
+<!-- 7. Reviews -->
+<section class="block alt">
+  <h2>What customers say</h2>
+  <div class="cards">
+    <blockquote class="card">"Quick repair and fair price. My screen was fixed in two hours."<footer>Customer name</footer></blockquote>
+    <blockquote class="card">"Genuine phone with a warranty. I'll be back."<footer>Customer name</footer></blockquote>
+  </div>
+</section>
+
+<!-- 8. Visit us / CTA -->
+<section class="cta">
+  <h2>Visit us or send a message</h2>
+  <p>Shop address, Town &nbsp;•&nbsp; Mon–Sat, 8:00am – 7:00pm</p>
+  <a class="btn btn-light" href="{% url 'contact' %}">Contact us</a>
+</section>
+
+{% endblock %}

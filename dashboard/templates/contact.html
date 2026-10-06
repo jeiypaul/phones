@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% block title %}Contact Us | Your Phone Shop{% endblock %}
+
+{% block content %}
+{% if messages %}
+  {% for m in messages %}
+    <div class="alert {{ m.tags }}" role="status">{{ m }}</div>
+  {% endfor %}
+{% endif %}
+
+<section class="page-hero">
+  <h1>Contact Sera Mobile.Technology</h1>
+  <p>Visit the shop, call, WhatsApp or send a message. We reply as quickly as we can.</p>
+</section>
+
+<!-- Info cards -->
+<section class="block">
+  <div class="info-grid">
+
+    <div class="info-card blue">
+      <h2>Visit our shop</h2>
+      <p class="info-big">Shop address, Building name</p>
+      <p>Town, County</p>
+      <p class="info-sub">Near landmark, opposite landmark</p>
+      <a class="btn btn-dark" href="https://www.google.com/maps/search/?api=1&query=Your+Shop+Name+Town" target="_blank" rel="noopener">Get directions</a>
+    </div>
+
+    <div class="info-card">
+      <h2>Working hours</h2>
+      <table class="hours">
+        <tr><td>Monday – Friday</td><td>8:00am – 7:00pm</td></tr>
+        <tr><td>Saturday</td><td>8:00am – 7:00pm</td></tr>
+        <tr><td>Sunday</td><td>Closed</td></tr>
+      </table>
+    </div>
+
+    <div class="info-card">
+      <h2>Reach us fast</h2>
+      <div class="quick">
+        <a class="btn btn-call" href="tel:+254743989921">Call +254 743989921</a>
+        <a class="btn btn-wa" href="https://wa.me/254743989921" target="_blank" rel="noopener">WhatsApp us</a>
+        <a class="btn btn-line" href="mailto:hello@ypaulnduati154@gmail.com">Email us</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Map -->
+<section class="block" style="padding-top:0">
+  <h2>Find us on the map</h2>
+  <div class="map">
+    <iframe
+      src="https://www.google.com/maps?q=Nairobi&output=embed"
+      title="Shop location on Google Maps"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      allowfullscreen></iframe>
+  </div>
+</section>
+
+<!-- Form -->
+<section class="block alt" id="message">
+  <h2>Send us a message</h2>
+  <p class="lead">Fill in your details and we will reply by phone, WhatsApp or email.</p>
+
+  {% if messages %}
+    {% for m in messages %}
+      <div class="alert {{ m.tags }}" role="status">{{ m }}</div>
+    {% endfor %}
+  {% endif %}
+
+  <form method="post" action="{% url 'contact' %}" class="contact-form" id="contactForm" novalidate>
+    {% csrf_token %}
+
+    <div class="field"><label for="{{ form.name.id_for_label }}">Full name *</label>
+      {{ form.name }}{% for e in form.name.errors %}<span class="err">{{ e }}</span>{% endfor %}</div>
+
+    <div class="field"><label for="{{ form.phone.id_for_label }}">Phone number *</label>
+      {{ form.phone }}{% for e in form.phone.errors %}<span class="err">{{ e }}</span>{% endfor %}</div>
+
+    <div class="field"><label for="{{ form.email.id_for_label }}">Email</label>
+      {{ form.email }}{% for e in form.email.errors %}<span class="err">{{ e }}</span>{% endfor %}</div>
+
+    <div class="field"><label for="{{ form.subject.id_for_label }}">What do you need? *</label>
+      {{ form.subject }}</div>
+
+    <div class="field full"><label for="{{ form.message.id_for_label }}">Message *</label>
+      {{ form.message }}{% for e in form.message.errors %}<span class="err">{{ e }}</span>{% endfor %}</div>
+
+    <!-- spam trap, hidden from people -->
+    <div class="hp" aria-hidden="true">{{ form.website }}</div>
+
+    <div class="field full actions">
+      <button type="submit" class="btn btn-dark">Send by email</button>
+      <button type="button" class="btn btn-wa" id="sendWa">Send on WhatsApp</button>
+      <a class="btn btn-call" href="tel:+254743989921">Call us</a>
+    </div>
+  </form>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// "Send on WhatsApp" builds a message from the form and opens WhatsApp
+document.getElementById("sendWa").addEventListener("click", function () {
+  var f = document.getElementById("contactForm");
+  var get = function (n) { return (f.elements[n] && f.elements[n].value.trim()) || ""; };
+  if (!get("name") || !get("message")) {
+    alert("Please enter your name and message first.");
+    return;
+  }
+  var text = "Hello, my name is " + get("name") +
+    (get("phone") ? " (" + get("phone") + ")" : "") +
+    ".\nSubject: " + get("subject") + "\n\n" + get("message");
+  window.open("https://wa.me/254743989921?text=" + encodeURIComponent(text), "_blank", "noopener");
+});
+</script>
+{% endblock %}
