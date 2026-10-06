@@ -37,7 +37,7 @@ ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 RENDER_HOST = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
 if RENDER_HOST:
     ALLOWED_HOSTS.append(RENDER_HOST)
-    CSRF_TRUSTED_ORIGINS = ["https://" + RENDER_HOST]
+    CSRF_TRUSTED_ORIGINS = ["https://seramobile-technology.onrender.com/" + RENDER_HOST]
 
 
 
